@@ -1,0 +1,7 @@
+﻿services:
+  adventofcode2025:
+    image: adventofcode2025
+    build:
+      context: .
+      dockerfile: AdventOfCode2025/Dockerfile
+
