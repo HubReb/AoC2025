@@ -20,11 +20,7 @@ public class Rotator(int currentPosition, int highestNumber, int lowestNumber)
 
     private void DecreaseDialNumberByClicks(int numberOfClicks)
     {
-        while (numberOfClicks > _dial.HighestNumber)
-        {
-            CounterOfCompletedRounds++;
-            numberOfClicks -= _dial.HighestNumber + 1;
-        }
+        numberOfClicks = HandleFullDialTurn(numberOfClicks);
 
         if (_dial.CurrentPosition == 0)
         {
@@ -37,19 +33,13 @@ public class Rotator(int currentPosition, int highestNumber, int lowestNumber)
             _dial.CurrentPosition = _dial.HighestNumber;
             CounterOfCompletedRounds++;
         }
-
-        if (numberOfClicks == 0) return;
         _dial.CurrentPosition -= numberOfClicks;
-        if (_dial.CurrentPosition == 0) CounterOfCompletedRounds++;
+        if (_dial.CurrentPosition == 0 && numberOfClicks != 0) CounterOfCompletedRounds++;
     }
 
     private void IncreaseDialNumberByClicks(int numberOfClicks)
     {
-        while (numberOfClicks > _dial.HighestNumber)
-        {
-            CounterOfCompletedRounds++;
-            numberOfClicks -= _dial.HighestNumber + 1;
-        }
+        numberOfClicks = HandleFullDialTurn(numberOfClicks);
 
         if (_dial.CurrentPosition + numberOfClicks > _dial.HighestNumber)
         {
@@ -57,10 +47,20 @@ public class Rotator(int currentPosition, int highestNumber, int lowestNumber)
             _dial.CurrentPosition = 0;
             CounterOfCompletedRounds++;
         }
-
-        if (numberOfClicks == 0) return;
         _dial.CurrentPosition += numberOfClicks;
-        if (_dial.CurrentPosition == 0) CounterOfCompletedRounds++;
+        if (_dial.CurrentPosition == 0 && numberOfClicks != 0) CounterOfCompletedRounds++;
+
+    }
+
+    private int HandleFullDialTurn(int numberOfClicks)
+    {
+        while (numberOfClicks > _dial.HighestNumber)
+        {
+            CounterOfCompletedRounds++;
+            numberOfClicks -= _dial.HighestNumber + 1;
+        }
+
+        return numberOfClicks;
     }
 
     public int GetCurrentPositionOfDial()
