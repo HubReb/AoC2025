@@ -1,4 +1,4 @@
-namespace AdventOfCode2025;
+namespace DayOneSolution;
 
 public struct Dial(int currentPosition, int highestNumber, int lowestNumber)
 {

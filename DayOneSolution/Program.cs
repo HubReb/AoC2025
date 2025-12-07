@@ -1,7 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using System.Text;
-using AdventOfCode2025;
+using DayOneSolution;
 
 Console.WriteLine("Hello, World!");
 var rotator = new Rotator(50, 99, 0);
@@ -14,4 +14,5 @@ while (streamReader.ReadLine() is { } line)
     var numberOfClicks = int.Parse(line.Substring(1));
     rotator.Rotate(increase, numberOfClicks);
 }
+
 Console.WriteLine(rotator.CounterOfCompletedRounds);

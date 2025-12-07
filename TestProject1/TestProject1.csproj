@@ -19,7 +19,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\AdventOfCode2025\AdventOfCode2025.csproj" />
+      <ProjectReference Include="..\DayOneSolution\DayOneSolution.csproj" />
     </ItemGroup>
 
 </Project>

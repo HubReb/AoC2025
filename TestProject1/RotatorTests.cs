@@ -1,4 +1,4 @@
-﻿using AdventOfCode2025;
+﻿using DayOneSolution;
 
 namespace TestProject1;
 
@@ -52,7 +52,7 @@ public class RotatorTests
     [Theory]
     [InlineData(50, 1, 0)]
     [InlineData(50, 10, 0)]
-    [InlineData(0, 1, 1)]
+    [InlineData(0, 1, 0)]
     [InlineData(50, 49, 0)]
     [InlineData(50, 50, 1)]
     [InlineData(50, 150, 2)]
